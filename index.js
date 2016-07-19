@@ -11,7 +11,8 @@ var EventEmitter = require('events').EventEmitter,
     //serializer = require('serializer'),
     //hashlib = require('hashlib2'),
     modelling = require('modelling'),
-    // sailsRedis = require('sails-redis'),
+    sailsRedis = "",
+    //require('sails-redis'),
     crypto = require('crypto'),
     _ = require('lodash'),
     extend = require('extend'),
@@ -21,17 +22,6 @@ var EventEmitter = require('events').EventEmitter,
     util = require("util"),
     base64url = require('base64url'),
     cleanObj = require('clean-obj');
-
-
-// ,
-//         adapters: {
-//             redis: sailsRedis
-//         },
-//         connections: {
-//             def: {
-//                 adapter: 'redis'
-//             }
-//         },
 
 
 var defaults = {
@@ -55,7 +45,15 @@ var defaults = {
                 res.redirect(this.settings.login_url + '?' + querystring.stringify({ return_url: q }));
             }
         },
-    }
+    },
+    adapters: {
+        redis: sailsRedis
+    },
+    connections: {
+        def: {
+            adapter: 'redis'
+        }
+    },
     models: {
         user: {
             identity: 'user',
