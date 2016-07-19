@@ -61,7 +61,7 @@ var defaults = {
             schema: true,
             policies: 'loggedIn',
             attributes: {
-                name: { type: 'string', required: true },
+                name: { type: 'string', required: true, unique: false },
                 given_name: { type: 'string', required: true },
                 middle_name: 'string',
                 family_name: { type: 'string', required: true },
